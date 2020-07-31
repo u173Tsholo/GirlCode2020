@@ -45,7 +45,6 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
@@ -57,10 +56,7 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatInputModule, MatListModule,
     MatCardModule, MatFormFieldModule, MatDialogModule, ReactiveFormsModule
-    //MatGridListModule, MatRadioModule, ,
-=======
-    MatCardModule
->>>>>>> 05be6f85dc5907cc6ff16cb4cc45abab204ca8c5
+    //MatGridListModule, MatRadioModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
