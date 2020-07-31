@@ -7,9 +7,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const Str = require('@supercharge/strings');
 const bcrypt = require('bcrypt');
-const PuzzleRating = require('../models/PuzzleRating');
-const Puzzle = require('../models/Puzzle');
-const Role = require('../models/Roles');
+const Role = require('../models/Role');
 
 //create user role
 router.post('/createRole', (request, response) => {
