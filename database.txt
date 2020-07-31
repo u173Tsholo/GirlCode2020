@@ -1,0 +1,10 @@
+Host
+ec2-18-211-48-247.compute-1.amazonaws.com
+Database
+d3hgsi2l63vmb8
+User
+crptiokvpligte
+Port
+5432
+Password
+2a2cf799640a6efb5650b8ee18de55aada3f86733c9d2e814cdc199405b4dd9f

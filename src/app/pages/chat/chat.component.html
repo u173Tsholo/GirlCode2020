@@ -1,1 +1,24 @@
-<p>chat works!</p>
+<div class="container-fluid">
+<div class="row">
+
+  <div id="channels" class="col-xs-4">
+    <h1>Channels</h1>
+
+    <br>
+    <mat-card *ngFor="let channel of channelList" >
+        <mat-card-header>
+            <mat-card-title>{{channel.Name}}</mat-card-title>
+            <mat-card-subtitle>Participants: {{channel.Participants}}</mat-card-subtitle>
+        </mat-card-header>
+        <br>
+    </mat-card>
+
+  </div>
+
+  <div id="msg" class="col-xs-8">
+    <h1>Messages</h1>
+
+  </div>
+
+</div>
+</div>

@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
+  channelList: any;
+  channelObj: any;
+
   constructor() { }
 
+  getChannels(){
+    // get all channels from api
+
+    this.channelList= [{
+        "Name": "Test",
+        "Participants": "Me"
+    },
+  {
+    "Name": "Test2",
+    "Participants": "You"
+  }]
+  console.log(this.channelList); 
+
+  }
+
+
   ngOnInit(): void {
+    this.getChannels();
   }
 
 }
