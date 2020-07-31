@@ -1,0 +1,13 @@
+#msg, #channels{
+  text-align: center;
+  margin-top: 2vw;
+}
+
+#sendMsg{
+  position: fixed;
+    bottom: 0;
+}
+
+#in{
+  width: 80vw;
+}

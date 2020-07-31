@@ -8,28 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class ChatComponent implements OnInit {
 
   channelList: any;
-  channelObj: any;
+  messageList: any;
+  admin: boolean;
 
   constructor() { }
 
   getChannels(){
-    // get all channels from api
+    // get all channels from api for admin user
+  }
 
-    this.channelList= [{
-        "Name": "Test",
-        "Participants": "Me"
-    },
-  {
-    "Name": "Test2",
-    "Participants": "You"
-  }]
-  console.log(this.channelList); 
+  getMessages(){
+    // get all messages from api per user
+  }
+
+  sendMessage(){
 
   }
 
-
   ngOnInit(): void {
     this.getChannels();
+    this.getMessages();
+    this.admin = false;
   }
 
 }
