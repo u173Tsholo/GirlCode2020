@@ -8,7 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //component modules
 import { MatButtonModule } from '@angular/material/button';
@@ -21,12 +21,15 @@ import { MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
+// import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 //import { MatGridListModule } from '@angular/material/grid-list'
 //import { MatRadioModule } from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
+import { ChatComponent } from './pages/chat/chat.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,12 +38,14 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
@@ -53,6 +58,9 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule, MatListModule,
     MatCardModule, MatFormFieldModule, MatDialogModule, ReactiveFormsModule
     //MatGridListModule, MatRadioModule, ,
+=======
+    MatCardModule
+>>>>>>> 05be6f85dc5907cc6ff16cb4cc45abab204ca8c5
   ],
   providers: [],
   bootstrap: [AppComponent]

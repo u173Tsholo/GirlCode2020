@@ -4,6 +4,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ChatComponent } from "./pages/chat/chat.component";
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'signup', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'chat', component: ChatComponent},
 
     // otherwise redirect to index
   { path: '', redirectTo: '/index', pathMatch: 'full' },

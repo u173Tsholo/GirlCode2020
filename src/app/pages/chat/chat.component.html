@@ -1,0 +1,32 @@
+<div class="container-fluid">
+<div class="row">
+
+  <div  id="channels" class="col-xs-12" *ngIf="admin">
+    <h1>Channels</h1>
+    <!--mat-card *ngFor="let channel of channelList" >
+        <mat-card-header>
+            <mat-card-title>{{channel.Name}}</mat-card-title>
+            <mat-card-subtitle>Participants: {{channel.Participants}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card-->
+
+  </div>
+
+  <div class="col-xs-12">
+    <h1 id="msg">Messages</h1>
+
+    <!-- Messages here -->
+
+    <div id="sendMsg">
+      <form (ngSubmit)="sendMessage()">
+        <input type="text" placeholder="Type a message" name="newMessage" id="in"/>
+        <button type="button">
+          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+</div>
