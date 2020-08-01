@@ -76,7 +76,7 @@ export class ChatComponent implements OnInit {
     console.log("token ", this.token);
     this.userRole = localStorage.getItem('role');
     console.log("role ", this.userRole);
-    if(this.userRole){ this.admin = true; }
+    if(this.userRole == "Admin"){ this.admin = true; }
 
     this.userChatServiceForm = this.formBuilder.group({
       newMessage: ['', [Validators.required]]
