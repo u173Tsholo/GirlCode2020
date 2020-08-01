@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt');
 const TextChannel = require('../models/TextChannel');
 const Role = require('../models/Role');
 const { json } = require('sequelize');
+const SOS = require('../models/SOS');
 
 
 //get all current channels
@@ -75,7 +76,7 @@ router.post('/createNewChannel', (request, response) => {
 
                 TextChannel.findAll( { raw: true, where: { userID: userID } && {resolved: false} })
                 .then( data => {
-                    if(data){
+                    if(data[0] != null){
                         console.log("Not null so try update, ", data)
                         let currentMessage = JSON.parse(data[0].message);
                         //now create the json object for the current message
@@ -105,7 +106,7 @@ router.post('/createNewChannel', (request, response) => {
                         })
                     }
                     else{
-                        console.log("Creatiooooooooooon")
+                        console.log("Creatiooooooooooon");
                         //now create the json object for the current message
                         var todaysDate = new Date();
                         var currentTime = todaysDate.getHours() + ":" + todaysDate.getMinutes() + ":" + todaysDate.getSeconds();
@@ -210,5 +211,36 @@ router.post("/replyToUser", (request, response) => {
         console.log("Error ", error);
     });
 });
+
+
+
+//sos endpoints
+router.post('/newSOS', (request, response) => {
+    let userID;
+    const rating = request.body.rating;
+    let service;
+
+    User.findOne({ raw: true, where: { token: {[Op.like]:  request.body.token } } })
+    .then( data => {
+        userID = data.id;
+
+        console.log("********** ", userID, rating)
+
+        SOS.create({
+            userID, rating, service
+        })
+        .then( () => {
+            response.status(201).send("Message sent");
+        })
+        .catch( error => { 
+            console.log("Hi ", error)
+            //response.status(500).send("Server error");
+        });
+    })
+    .catch( error => {
+        console.log("Error ", error);
+    })
+});
+//
 
 module.exports = router;
