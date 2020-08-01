@@ -1,11 +1,12 @@
 <div class="container-fluid">
 <div class="row">
 
-  <div  id="channels" class="col-xs-12" *ngIf="admin">
-    <h1>Channels</h1>
+  <div  id="channels" class="col-xs-12">
+    <!-- <div  id="channels" class="col-xs-12" *ngIf="admin"></div> -->
+    <h1>Chat History</h1>
     <mat-card *ngFor="let channel of channelList" >
         <mat-card-header>
-            <mat-card-title>Message from: {{channel.from}} at time: {{channel.time}}</mat-card-title>
+            <mat-card-title>Message from: {{channel.user}} at time: {{channel.timestamp}}</mat-card-title>
             <mat-card-subtitle>Message itself: {{channel.message}}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>

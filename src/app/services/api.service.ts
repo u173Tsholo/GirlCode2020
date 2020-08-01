@@ -63,6 +63,13 @@ export class ApiService {
      return this.http.get<any>('http://localhost:3200/api/textChannel/getCurrentChannels');
    }
 
+   //replyToUser
+   replyToUser(messageObject: any){
+     console.log("sending you: ", messageObject);
+    const httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' })};
+    return this.http.post('http://localhost:3200/api/textChannel/replyToUser', messageObject, httpOptions);
+   }
+
   /**
    * Text endpoints end here
    */
