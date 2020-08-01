@@ -44,9 +44,24 @@ export class ApiService {
     return this.http.put('http://localhost:3200/api/users/updateUsername', currentUser, httpOptions);
   }
 
+
   /**
    * User endpoints end here
    */
+
+  /**
+   * Text endpoints start here
+   */
+
+   createTextChannel(messageObject: any){
+    const httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' })};
+    return this.http.post('http://localhost:3200/api/textChannel/createNewChannel', messageObject, httpOptions);
+   }
+
+  /**
+   * Text endpoints end here
+   */
+
 
 
 

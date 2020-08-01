@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -11,7 +14,24 @@ export class ChatComponent implements OnInit {
   messageList: any;
   admin: boolean;
 
-  constructor() { }
+  //////////////
+  userChatServiceForm: FormGroup;
+  token: any;
+  currentUser: any;
+
+  constructor(private formBuilder: FormBuilder, private api:ApiService, private router: Router) { }
+
+  sendThisMessage(msgObject: any){
+    console.log("Form submitted: ", msgObject.newMessage);
+    this.currentUser = {
+      "token": this.token,
+      "role": "Admin",
+      "message": msgObject.newMessage
+    };
+    this.api.createTextChannel(this.currentUser).subscribe( data => {
+      console.log("We done");
+    })
+  }
 
   getChannels(){
     // get all channels from api for admin user
@@ -26,9 +46,15 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getChannels();
-    this.getMessages();
-    this.admin = false;
+    this.token = localStorage.getItem('token');
+    console.log("token ", this.token);
+    this.userChatServiceForm = this.formBuilder.group({
+      newMessage: ['', [Validators.required]]
+
+    });
+    //this.getChannels();
+    //this.getMessages();
+    //this.admin = false;
   }
 
 }

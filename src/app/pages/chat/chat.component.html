@@ -18,8 +18,11 @@
     <!-- Messages here -->
 
     <div id="sendMsg">
-      <form (ngSubmit)="sendMessage()">
-        <input type="text" placeholder="Type a message" name="newMessage" id="in"/>
+      <form [formGroup]="userChatServiceForm" (ngSubmit)="sendThisMessage(userChatServiceForm.value)">
+        <!-- <input type="text" placeholder="Type a message" name="newMessage" id="in" > -->
+        <mat-form-field appearance="fill">
+          <input class="input" matInput placeholder="Type a message" id="in" formControlName="newMessage" required>
+        </mat-form-field>
         <button type="button">
           <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
         </button>
