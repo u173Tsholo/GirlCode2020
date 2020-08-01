@@ -9,23 +9,43 @@ const Str = require('@supercharge/strings');
 const bcrypt = require('bcrypt');
 const TextChannel = require('../models/TextChannel');
 const Role = require('../models/Role');
+const { json } = require('sequelize');
 
 
 //get all current channels
 router.get('/getCurrentChannels', (request, response) => {
     console.log("Now here");
+    let index = 0;
+    let channelObject = [];
+    let array = [];
+    let channelCounter;
     TextChannel.findAll( { raw: true, where: { resolved: false } } )
     .then( data => {
-        let messageObject = JSON.parse(data[0].message);
-        console.log("Eureka, ", "from ", messageObject[0].user, " message " ,messageObject[0].message, " time ", messageObject[0].timestamp);
-        response.status(200).json({"from": messageObject[0].user, "message": messageObject[0].message, "time":messageObject[0].timestamp});
+        console.log("----> ", data);
+        channelCounter = Object.keys(data).length;
+        array = data;
+        array.forEach(element => {
+            //JSON.parse(element.message);
+            channelObject.push(element.message);
+            index++;
+            if(index == channelCounter)
+            {
+                channelObject = JSON.parse(channelObject);
+                console.log("xxxxx ", channelObject);
+                response.status(200).json(channelObject);
+                //break;
+            }
+        });
+        // let messageObject = JSON.parse(data[0].message);
+        // console.log("Eureka, ", "from ", messageObject[0].user, " message " ,messageObject[0].message, " time ", messageObject[0].timestamp);
+        // response.status(200).json({"from": messageObject[0].user, "message": messageObject[0].message, "time":messageObject[0].timestamp});
     })
     .catch( error => {
         console.log("Error: ", error)
     });
 });
 
-//create user role
+//create new channel
 router.post('/createNewChannel', (request, response) => {
 
     let userID;
@@ -53,39 +73,71 @@ router.post('/createNewChannel', (request, response) => {
             .then ( data => {
                 adminID = data[0].id;
 
-                //now create the json object for the current message
-                var todaysDate = new Date();
-                var currentTime = todaysDate.getHours() + ":" + todaysDate.getMinutes() + ":" + todaysDate.getSeconds();
-                let userMessageObjectArray = [];
-                let userMessageObject = {
-                    "message": request.body.message,
-                    "timestamp": currentTime,
-                    "user": userName,
-                    "sentTo": adminID
-                }
-
-                userMessageObjectArray.push(userMessageObject);
-                let message = JSON.stringify(userMessageObjectArray);;
-
-                console.log("*************************** ", userID, adminID, resolved, message );
-
-                const role = request.body.role;
-                TextChannel.create({
-                    userID, adminID, resolved, message 
-                })
+                TextChannel.findAll( { raw: true, where: { userID: userID } && {resolved: false} })
                 .then( data => {
-                    response.status(201).send("Message sent");
+                    if(data){
+                        console.log("Not null so try update, ", data)
+                        let currentMessage = JSON.parse(data[0].message);
+                        //now create the json object for the current message
+                        var todaysDate = new Date();
+                        var currentTime = todaysDate.getHours() + ":" + todaysDate.getMinutes() + ":" + todaysDate.getSeconds();
+                        let userMessageObjectArray = [];
+                        let userMessageObject = {
+                            "message": request.body.message,
+                            "timestamp": currentTime,
+                            "user": userName,
+                            "sentTo": adminID
+                        }
+
+                        currentMessage.push(userMessageObject);
+                        let message = JSON.stringify(currentMessage);
+
+                        TextChannel.update(
+                             { message: message },
+                             { where: { userID: userID } }
+                        )
+                        .then( () => { 
+                            response.status(201).send("Message saved");
+                        } )
+                        .catch( error => {
+                            //console.log("~~~~~~~~~~", error);
+                            response.send("Server error: " + error);
+                        })
+                    }
+                    else{
+                        console.log("Creatiooooooooooon")
+                        //now create the json object for the current message
+                        var todaysDate = new Date();
+                        var currentTime = todaysDate.getHours() + ":" + todaysDate.getMinutes() + ":" + todaysDate.getSeconds();
+                        let userMessageObjectArray = [];
+                        let userMessageObject = {
+                            "message": request.body.message,
+                            "timestamp": currentTime,
+                            "user": userName,
+                            "sentTo": adminID
+                        }
+
+                        userMessageObjectArray.push(userMessageObject);
+                        let message = JSON.stringify(userMessageObjectArray);
+
+                        TextChannel.create({
+                            userID, adminID, resolved, message 
+                        })
+                        .then( data => {
+                            response.status(201).send("Message sent");
+                        })
+                        .catch( error => { 
+                            console.log(error)
+                            response.status(500).send("Server error");
+                        });
+                    }
                 })
-                .catch( error => { 
-                    console.log(error)
-                    response.status(500).send("Server error");
-                });
+                .catch( error => {})
+               // const role = request.body.role;
             })
             .catch( error => {
                 console.log("error here: 1 ", error);
             });
-
-            console.log("Before insert id is: ", adminID);
         })
         .catch( error => {
             console.log("error here: 1 ", error);
@@ -93,9 +145,70 @@ router.post('/createNewChannel', (request, response) => {
     })
     .catch( error => {
         console.log("error here: 1 ", error);
-    });
+    }); 
+});
 
-    
+router.post("/replyToUser", (request, response) => {
+    const token = request.body.token;
+    const message = request.body.message;
+
+    console.log("Ma body:", request.body);
+
+    let userID;
+    let adminID;
+
+    User.findOne({ raw: true, where: { token: {[Op.like]:  request.body.token } } })
+    .then( data => {
+        adminID = data.id;
+
+        User.findOne({ raw: true, where: { name: {[Op.like]:  request.body.user } } })
+        .then( data => {
+            userID = data.id;
+
+            //reply to chat
+            TextChannel.findAll( { raw: true, where: { adminID: adminID } && { userID: userID } && {resolved: false} } )
+            .then( data => {
+                if(data){
+                    console.log("Not null so try update, ", data)
+                    let currentMessage = JSON.parse(data[0].message);
+                    //now create the json object for the current message
+                    var todaysDate = new Date();
+                    var currentTime = todaysDate.getHours() + ":" + todaysDate.getMinutes() + ":" + todaysDate.getSeconds();
+                    let userMessageObjectArray = [];
+                    let userMessageObject = {
+                        "message": request.body.message,
+                        "timestamp": currentTime,
+                        "user": "Admin",
+                        "sentTo": request.body.user
+                    }
+
+                    currentMessage.push(userMessageObject);
+                    let message = JSON.stringify(currentMessage);
+
+                    TextChannel.update(
+                         { message: message },
+                         { where: { userID: userID } && { userID: userID } && { resolved:false } }
+                    )
+                    .then( () => { 
+                        response.status(201).send("Message saved");
+                    } )
+                    .catch( error => {
+                        console.log("~~~~~~~~~~", error);
+                        //response.send("Server error: " + error);
+                    })
+                }
+            })
+            .catch( error => {
+                //
+            });
+        })
+        .catch( error => {
+            console.log("Error ", error);
+        });
+    })
+    .catch( error => {
+        console.log("Error ", error);
+    });
 });
 
 module.exports = router;
