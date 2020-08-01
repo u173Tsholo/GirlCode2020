@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RateDialogComponent } from '../../rate-dialog/rate-dialog.component';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-help',
@@ -15,7 +16,9 @@ export class HelpComponent implements OnInit {
   rateDialogRef: MatDialogRef<RateDialogComponent>;
   token: any;
 
-  constructor( private dialog: MatDialog, private router: Router) { }
+  sosObject: any;
+
+  constructor( private dialog: MatDialog, private api:ApiService, private router: Router) { }
 
   btnsos(){
     this.n = this.n + 1;
@@ -29,16 +32,19 @@ export class HelpComponent implements OnInit {
 
       this.rateDialogRef.afterClosed().subscribe( result => {
         if (result != ""){
-          //location.reload();
-          // This should only be called if API succeeds but leave it for now
-          alert("Hang tight. Help is on the way!");
+          this.sosObject = {
+            "token": this.token,
+            "rating": result
+          };
+
+          this.api.sendSOS(this.sosObject).subscribe( () => {
+            alert("Hang tight. Help is on the way!");
+          });
         }
 
       });
 
     }
-
-
   }
 
   route(){

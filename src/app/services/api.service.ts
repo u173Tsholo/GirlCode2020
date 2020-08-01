@@ -75,6 +75,22 @@ export class ApiService {
    */
 
 
+   //newSOS
+
+   /**
+   * SOS endpoints start here
+   */
+
+  sendSOS(sosObject: any){
+    console.log("sending you: ", sosObject);
+   const httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' })};
+   return this.http.post('http://localhost:3200/api/textChannel/newSOS', sosObject, httpOptions);
+  }
+
+   /**
+   * SOS endpoints end here
+   */
+
 
 
 
