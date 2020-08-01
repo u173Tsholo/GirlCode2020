@@ -13,6 +13,7 @@ export class HelpComponent implements OnInit {
 
   n: number;
   rateDialogRef: MatDialogRef<RateDialogComponent>;
+  token: any;
 
   constructor( private dialog: MatDialog, private router: Router) { }
 
@@ -29,6 +30,8 @@ export class HelpComponent implements OnInit {
       this.rateDialogRef.afterClosed().subscribe( result => {
         if (result != ""){
           //location.reload();
+          // This should only be called if API succeeds but leave it for now
+          alert("Hang tight. Help is on the way!");
         }
 
       });
@@ -45,6 +48,7 @@ export class HelpComponent implements OnInit {
 
   ngOnInit(): void {
     this.n = 0;
+    this.token = localStorage.getItem('token');
   }
 
 }
