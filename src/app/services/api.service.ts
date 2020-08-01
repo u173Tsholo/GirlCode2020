@@ -58,6 +58,11 @@ export class ApiService {
     return this.http.post('http://localhost:3200/api/textChannel/createNewChannel', messageObject, httpOptions);
    }
 
+   getAllChannels(){
+     console.log("called");
+     return this.http.get<any>('http://localhost:3200/api/textChannel/getCurrentChannels');
+   }
+
   /**
    * Text endpoints end here
    */

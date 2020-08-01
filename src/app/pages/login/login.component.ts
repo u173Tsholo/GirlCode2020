@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('name', data['name']);
           localStorage.removeItem('token');
           localStorage.setItem('token', data['token']);
+          localStorage.removeItem('role');
+          localStorage.setItem('role', data['role']);
 
           // update api to get id as well
           localStorage.removeItem('id');

@@ -13,6 +13,7 @@ export class ChatComponent implements OnInit {
   channelList: any;
   messageList: any;
   admin: boolean;
+  userRole: string;
 
   //////////////
   userChatServiceForm: FormGroup;
@@ -35,6 +36,10 @@ export class ChatComponent implements OnInit {
 
   getChannels(){
     // get all channels from api for admin user
+    this.api.getAllChannels().subscribe( data => {
+      console.log("Getting this object from the db: ", data);
+      this.channelList = data;
+    })
   }
 
   getMessages(){
@@ -48,11 +53,16 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     console.log("token ", this.token);
+    this.userRole = localStorage.getItem('role');
+    console.log("role ", this.userRole);
+    if(this.userRole){ this.admin = true; }
+
     this.userChatServiceForm = this.formBuilder.group({
       newMessage: ['', [Validators.required]]
 
     });
-    //this.getChannels();
+
+    this.getChannels();
     //this.getMessages();
     //this.admin = false;
   }
