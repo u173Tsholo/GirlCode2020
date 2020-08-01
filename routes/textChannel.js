@@ -10,6 +10,21 @@ const bcrypt = require('bcrypt');
 const TextChannel = require('../models/TextChannel');
 const Role = require('../models/Role');
 
+
+//get all current channels
+router.get('/getCurrentChannels', (request, response) => {
+    console.log("Now here");
+    TextChannel.findAll( { raw: true, where: { resolved: false } } )
+    .then( data => {
+        let messageObject = JSON.parse(data[0].message);
+        console.log("Eureka, ", "from ", messageObject[0].user, " message " ,messageObject[0].message, " time ", messageObject[0].timestamp);
+        response.status(200).json({"from": messageObject[0].user, "message": messageObject[0].message, "time":messageObject[0].timestamp});
+    })
+    .catch( error => {
+        console.log("Error: ", error)
+    });
+});
+
 //create user role
 router.post('/createNewChannel', (request, response) => {
 
@@ -82,13 +97,5 @@ router.post('/createNewChannel', (request, response) => {
 
     
 });
-
-router.get('getCurrentChannels', (request, response) => {
-    TextChannel.findAll( { raw: true, where: { resolved: false } } )
-    .then( data => {
-        response.status(200).json({"name": data[0].user, "message": data[0].userMessageObjectArray[0].message, "time":data[0].userMessageObjectArray[0].timestamp});
-    })
-    .catch();
-})
 
 module.exports = router;

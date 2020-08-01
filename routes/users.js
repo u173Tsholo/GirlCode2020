@@ -93,7 +93,12 @@ router.post('/login', (request, response) => {
             else {
                 bcrypt.compare(password, user[0].password, (err, res) => {
                     if(res){
-                        response.status(201).json({"token": user[0].token, "name": user[0].name});
+                        if(user[0].roleID == 1){
+                        response.status(201).json({"token": user[0].token, "name": user[0].name, "role":"Admin"});
+                        }
+                        else{
+                            response.status(201).json({"token": user[0].token, "name": user[0].name, "role":"User"});
+                        }
                     }
                     else {
                         response.status(403).send("Passwords do not match");
