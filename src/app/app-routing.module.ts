@@ -5,6 +5,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChatComponent } from "./pages/chat/chat.component";
+import { HelpComponent } from "./pages/help/help.component";
 
 
 const routes: Routes = [
@@ -13,6 +14,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'chat', component: ChatComponent},
+  {path: 'help', component: HelpComponent},
+
 
     // otherwise redirect to index
   { path: '', redirectTo: '/index', pathMatch: 'full' },
