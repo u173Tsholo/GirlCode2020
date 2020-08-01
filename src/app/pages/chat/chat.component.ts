@@ -14,6 +14,7 @@ export class ChatComponent implements OnInit {
   messageList: any;
   admin: boolean;
   userRole: string;
+  interval: any;
 
   //////////////
   userChatServiceForm: FormGroup;
@@ -51,10 +52,13 @@ export class ChatComponent implements OnInit {
         console.log("We done");
       })
     }
+
+    alert("Message sent");
+    this.getChannels();
+
   }
 
   getChannels(){
-    // get all channels from api for admin user
     this.api.getAllChannels().subscribe( data => {
       console.log("Getting this object from the db: ", data);
       this.userName = data[0].user;
@@ -63,26 +67,19 @@ export class ChatComponent implements OnInit {
     })
   }
 
-  getMessages(){
-    // get all messages from api per user
-  }
-
-  sendMessage(){
-
-  }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     console.log("token ", this.token);
     this.userRole = localStorage.getItem('role');
     console.log("role ", this.userRole);
-    if(this.userRole){ this.admin = true; }
+    if(this.userRole == "Admin"){ this.admin = true; }
 
     this.userChatServiceForm = this.formBuilder.group({
       newMessage: ['', [Validators.required]]
 
     });
-    
+
     //if(this.admin){
       this.getChannels();
     //}
