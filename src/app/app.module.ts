@@ -30,6 +30,8 @@ import {MatListModule} from '@angular/material/list';
 import { ChatComponent } from './pages/chat/chat.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { HelpComponent } from './pages/help/help.component';
+import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { MatCardModule } from '@angular/material/card';
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
-    ChatComponent
+    ChatComponent,
+    HelpComponent,
+    RateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,7 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatInputModule, MatListModule,
     MatCardModule, MatFormFieldModule, MatDialogModule, ReactiveFormsModule
-    //MatGridListModule, MatRadioModule, 
+    //MatGridListModule, MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

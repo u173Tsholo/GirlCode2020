@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+  <h1 mat-dialog-title>Rate how much danger you are in (out of 3)</h1>
+  <h3>1 - In need of a house visit from the cops.</h3>
+  <h3>2 - Need cops as soon as possible. </h3>
+  <h3>3 - Emergency. Need immediate assistance.</h3>
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput type="number" min="1" max="3" formControlName="rating" placeholder="Enter Rating" ngControl="rating">
+    </mat-form-field>
+    <div>
+        <ng-container *ngFor="let error of error_messages.rating">
+            <mat-error class="error-message" *ngIf="form.get('rating').hasError(error.type) && (form.get('rating').dirty || form.get('rating').touched)">
+                {{ error.message }}
+            </mat-error>
+        </ng-container>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="submit" [disabled]="!form.valid">Submit</button>
+    <button mat-button type="button" mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

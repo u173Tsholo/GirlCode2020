@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           localStorage.removeItem('id');
           localStorage.setItem('id', data['id']);
           this.formError = "";
-        this.router.navigate(['/chat']);
+          this.router.navigate(['/help']);
 
         setTimeout(()=>{
           localStorage.removeItem('token');
