@@ -11,8 +11,9 @@
               <li><a href="/profile">GBV</a></li>
               <li><a href="/chat">Chat</a></li>
               <li><a href="/help">Help</a></li>
-              <li id="two"><a href="/login">Login</a></li>
-              <li id="two"><a href="/register">Register</a></li>
+              <li *ngIf="!show" id="two"><a href="/login">Login</a></li>
+              <li *ngIf="!show" id="two"><a href="/signup">Register</a></li>
+              <li *ngIf="show" id="two"><a (click)="logout()">Logout</a></li>
             </ul>
           </nav>
         </header>

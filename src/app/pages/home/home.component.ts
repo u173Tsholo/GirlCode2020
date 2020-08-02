@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
 
    todaysDate: string = this.year + "/" + this.month + "/" + this.day;
 
-   constructor() { }
+   constructor(private router: Router) { }
    //months with 30 days - April, June, September, Nov
    //months with 31 days -Jan, March, May, July, Aug, Oct, Dec
 
@@ -120,6 +121,11 @@ export class HomeComponent implements OnInit {
    console.log("hey ",this.a);
 
    this.populate();
+
+   if (localStorage.getItem('token')== null)
+   {
+     this.router.navigate(['/index']);
+   }
 
  }
 

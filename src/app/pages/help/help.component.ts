@@ -45,6 +45,10 @@ export class HelpComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
+    if (localStorage.getItem('token')== null)
+    {
+      this.router.navigate(['/index']); 
+    }
   }
 
 }

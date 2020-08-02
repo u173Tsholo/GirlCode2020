@@ -105,6 +105,11 @@ export class ChatComponent implements OnInit {
 
     });
 
+    if (localStorage.getItem('token')== null)
+    {
+      this.router.navigate(['/index']);
+    }
+
     //if(this.admin){
       this.getChannels();
     //}
