@@ -1,7 +1,47 @@
+
+  .main-title{
+    margin-top: 50px;
+    font-family: keep-calm;
+    color: black;
+    /* margin-left: 80px;  */
+   /*  padding: 0.7em 0; */
+    text-align: center;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  .container{
+    background-color: whitesmoke;
+    background-image: url("../../../assets/images/light.jpg");
+    margin-right: 9rem;
+    margin-left: 9rem;
+    padding-top: 2%;
+    padding-bottom: 3%;
+  }
+
+
+
+table{
+    border-collapse: collapse;
+}
+
+
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid rgb(160, 160, 160);
     height: 20px;
     text-align: center;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: grey;
+    color: white;
+}
+
+td{
+    background-color: white;
 }
 
 tr {
@@ -13,6 +53,7 @@ td {
     width: 150px;
 }
 
-.calendar{
-    margin: 10rem;
+ .calendar{
+    margin-left: 5rem;
+
 }

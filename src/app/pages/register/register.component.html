@@ -2,7 +2,7 @@
     <div class="flex-container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center none">
         <mat-card class="regForm">
             <mat-card-header>
-                <h1>Sign Up</h1>
+                <img mat-card-image src="assets/images/up.png">
             </mat-card-header>
             <mat-card-content class="regFormContent">
                 <form [formGroup]="signUpForm" (ngSubmit)="createNewUser(signUpForm.value)">

@@ -1,7 +1,14 @@
 
+
+<h1 class="main-title">Period Tracker</h1>
+<p>Keep track of your period by calculating your dates</p>
+
+
+
+<div class="container">
 <div class="calendar">
 
-    <h4> {{monthName}} {{year}}</h4>
+    <h3> {{monthName}} {{year}}</h3>
 
     <table >
     <thead>
@@ -9,36 +16,37 @@
             <th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th>
         </tr>
     </thead>
-    <tbody>  
-        <tr id="x">  
-            <td *ngFor="let entry of weekOneArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
-    <tbody>  
-        <tr >  
-            <td *ngFor="let entry of weekTwoArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
-    <tbody>  
-        <tr >  
-            <td *ngFor="let entry of weekThreeArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
-    <tbody>  
-        <tr >  
-            <td *ngFor="let entry of weekFourArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
-    <tbody>  
-        <tr >  
-            <td *ngFor="let entry of weekFiveArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
-    <tbody>  
-        <tr >  
-            <td *ngFor="let entry of weekSixArray">{{entry}}</td>  
-        </tr>  
-    </tbody> 
+    <tbody>
+        <tr id="x">
+            <td *ngFor="let entry of weekOneArray">{{entry}}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr >
+            <td *ngFor="let entry of weekTwoArray">{{entry}}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr >
+            <td *ngFor="let entry of weekThreeArray">{{entry}}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr >
+            <td *ngFor="let entry of weekFourArray">{{entry}}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr >
+            <td *ngFor="let entry of weekFiveArray">{{entry}}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr >
+            <td *ngFor="let entry of weekSixArray">{{entry}}</td>
+        </tr>
+    </tbody>
     </table>
 
+</div>
 </div>

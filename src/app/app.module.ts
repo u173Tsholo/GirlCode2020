@@ -7,7 +7,10 @@ import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { TopicsComponent } from "./pages/topics/topics.component";
+import { LanguageComponent } from "./pages/mental health/language.component";
+import { PeriodComponent } from "./pages/period/period.component";
+import { ProfileComponent } from "./pages/gbv/profile.component";
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //component modules
@@ -40,10 +43,13 @@ import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavbarComponent,
     ChatComponent,
     HelpComponent,
     RateDialogComponent,
+    TopicsComponent,
+    LanguageComponent,
+    PeriodComponent,
+    ProfileComponent, 
   ],
   imports: [
     BrowserModule,
