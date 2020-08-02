@@ -15,6 +15,7 @@ export class ChatComponent implements OnInit {
   admin: boolean;
   userRole: string;
   interval: any;
+  loop: boolean;
 
   //////////////
   userChatServiceForm: FormGroup;
@@ -48,13 +49,28 @@ export class ChatComponent implements OnInit {
         "role": "Admin",
         "message": msgObject.newMessage
       };
-      this.api.createTextChannel(this.currentUser).subscribe( data => {
-        console.log("We done");
-      })
+      if (msgObject.newMessage == "Exit" || msgObject.newMessage == "exit") {
+        this.exitChat();
+        this.getChannels();
+      }
+      else
+      {
+        this.api.createTextChannel(this.currentUser).subscribe( data => {
+          //console.log("We done");
+        });
+      }
     }
 
     alert("Message sent");
     this.getChannels();
+    this.loop = true;
+
+    while(this.loop){
+      setTimeout(() => {
+        console.log('hide');
+        this.getChannels();
+      }, 3000);
+    }
 
   }
 
@@ -64,6 +80,15 @@ export class ChatComponent implements OnInit {
       this.userName = data[0].user;
       //console.log("User is ", data[0].user, this.userName)
       this.channelList = data;
+    })
+  }
+
+  exitChat(){
+    this.currentUser = {
+      "token": this.token
+    }
+    this.api.exitChat(this.currentUser).subscribe( () => {
+      this.getChannels();
     })
   }
 

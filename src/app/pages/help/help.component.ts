@@ -38,8 +38,9 @@ export class HelpComponent implements OnInit {
           };
 
           this.api.sendSOS(this.sosObject).subscribe( () => {
-            alert("Hang tight. Help is on the way!");
+            // alert("Hang tight. Help is on the way!");
           });
+          alert("Hang tight. Help is on the way!");
         }
 
       });

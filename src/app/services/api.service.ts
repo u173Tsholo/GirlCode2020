@@ -59,7 +59,6 @@ export class ApiService {
    }
 
    getAllChannels(){
-     console.log("called");
      return this.http.get<any>('http://localhost:3200/api/textChannel/getCurrentChannels');
    }
 
@@ -69,6 +68,12 @@ export class ApiService {
     const httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' })};
     return this.http.post('http://localhost:3200/api/textChannel/replyToUser', messageObject, httpOptions);
    }
+
+   exitChat(currentUser: any){
+     console.log("Called");
+   const httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' })};
+   return this.http.put('http://localhost:3200/api/textChannel/endChat', currentUser, httpOptions);
+  }
 
   /**
    * Text endpoints end here
