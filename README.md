@@ -1,13 +1,32 @@
 # Daisy
-Daisy is our Period Tracker facade application.
+Daisy is our Period Tracker facade application we made with the intention of addressing the UN SGD Goal 5: Achieve gender equality and empower all women and girls
 
-Many women and girls find themselves living full time with their abusers due to COVID19 and we understand that as a result, asking for help or calling the pollice which was possible before when faced with GBV might not always be possible.
+## Problem
+Many women and girls find themselves living full time with their abusers due to COVID19 and we understand that as a result, asking for help or calling the police which was possible before lcokdown when faced with GBV, might not always be possible.
+
+## Solution and Uniqueness of Solution
 As a result, we made a facade Period Tracker website because we understand "periods" is a topic many men shy away from.
 At first glance, the app is a typical period tracker with a calendar and info pages, however when the user attempts to add their period, they are taken to the help site where they can call for help using an SOS button or chat service.
 
 This application will deal with the user and an authoritative body like ours or other authoritative bodies we refer them to. We want to avoid situations where community members take matters into their own hands because case may tend to be distorted when police get involved
 
 `Users can rate the intensity of the situation they are in or use the chat service to peak to one of our qualified help center personnel on matters such as: Is my partner abusing me even though he apologies when he hurts me?, What shelters are there for abused women near me during lockdown etc. We do not make use of a robot chat service as we deal more with human emotions.`
+
+Even though we have the phone numbers of the user, we will not call them unless they require we do so as reaching out to us through the app tells us that they are not in a position to call authorities as they might be dangerous for them
+
+## User Experience
+We pride ourselves in having beautiful designs and user friendly interfaces hence our appealling Daisy theme that compliments the application name. 
+We used common design standards users are accustomed to like the login and register button positioning, making the interface as self explanatory as possible and implementing solid navigation preventing user not logged to access sentitive pages
+
+We also kept our help page to the bare minumum yet packed with enough content to get users the help the need in the shortest amount of time. If the perpetrator walks in on the user while on the chat service, the victim can quickly navigate to another page with ease. Chat history is also deleted on the user's end for their added security
+
+## Functionality
+The user can make an SOS request which through our api get saved to the database. In a real life situation, we would have directed the SOS to the relevant authorities...be it the police, emergency medical services etc.
+
+The user can speak to our centre agent using the chat system. We used the concept that our organisation assigns adminstrative roles to the employees who can help the users so if the mentors or Girl Code Hackathon organizers need to user the chat service as admin, please contact me through the Slack channel and I will provide an existing admin login credentials.
+
+All the code we used is out own, from the design, api and frontend. We hope we were able to adequately show our skills.
+
 
 # Technologies Used
 ## Frontend
