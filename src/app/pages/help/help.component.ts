@@ -12,7 +12,6 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class HelpComponent implements OnInit {
 
-  n: number;
   rateDialogRef: MatDialogRef<RateDialogComponent>;
   token: any;
 
@@ -21,13 +20,6 @@ export class HelpComponent implements OnInit {
   constructor( private dialog: MatDialog, private api:ApiService, private router: Router) { }
 
   btnsos(){
-    this.n = this.n + 1;
-    if (this.n == 1){
-      alert("If this is an emergency, press this button 5 times");
-    }
-    if (this.n == 6){
-      this.n = 0;
-
       this.rateDialogRef = this.dialog.open(RateDialogComponent);
 
       this.rateDialogRef.afterClosed().subscribe( result => {
@@ -44,8 +36,6 @@ export class HelpComponent implements OnInit {
         }
 
       });
-
-    }
   }
 
   route(){
@@ -54,7 +44,6 @@ export class HelpComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.n = 0;
     this.token = localStorage.getItem('token');
   }
 
