@@ -1,0 +1,35 @@
+.example-card {
+    max-width: 300px;
+    padding-bottom: 1rem;
+  }
+   
+  .main-title{
+    margin-top: 50px;
+    font-family: keep-calm; 
+    color: black;
+    /* margin-left: 80px;  */
+   /*  padding: 0.7em 0; */
+    text-align: center;
+  }
+  
+  .container{
+    background-color: whitesmoke;
+    margin-right: 9rem;
+    margin-left: 9rem;
+    /* height: 61%; */
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  p{
+    text-align: center;
+  }
+  
+  mat-card-actions{
+    text-align: center;
+    margin-bottom: 3%;
+  }
+  
+  button{
+    border: solid 1px grey;
+  }

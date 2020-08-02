@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './pages/index/index.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
-import { TopicsComponent } from "./pages/topics/topics.component";
-import { LanguageComponent } from "./pages/mental health/language.component";
-import { PeriodComponent } from "./pages/period/period.component";
-import { ProfileComponent } from "./pages/gbv/profile.component";
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SplashComponent } from './splash/splash.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { TopicsComponent } from './topics/topics.component';
+import { PeriodComponent } from './period/period.component';
+import { LanguageComponent } from './language/language.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { ChatComponent } from './chat/chat.component';
+import { HelpComponent } from './help/help.component';
+import { HomeComponent } from './home/home.component';
+import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
 
-//component modules
-import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 //import { MatMenuModule } from '@angular/material/menu';
@@ -30,31 +34,28 @@ import { MatDialogModule } from '@angular/material/dialog';
 //import { MatGridListModule } from '@angular/material/grid-list'
 //import { MatRadioModule } from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
-import { ChatComponent } from './pages/chat/chat.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
-import { HelpComponent } from './pages/help/help.component';
-import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
+    SplashComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
+    TopicsComponent,
+    PeriodComponent,
+    LanguageComponent,
+    ProfileComponent,
     ChatComponent,
     HelpComponent,
-    RateDialogComponent,
-    TopicsComponent,
-    LanguageComponent,
-    PeriodComponent,
-    ProfileComponent, 
+    HomeComponent,
+    RateDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
@@ -67,8 +68,13 @@ import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
     MatInputModule, MatListModule,
     MatCardModule, MatFormFieldModule, MatDialogModule, ReactiveFormsModule
     //MatGridListModule, MatRadioModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

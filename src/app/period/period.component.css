@@ -1,0 +1,57 @@
+ .main-title{   
+    font-family: keep-calm;
+    color: black;
+    text-align: center;
+    margin-top: 5%;
+    padding-top: 7%;
+    
+} 
+
+.test{
+    background-image: url("../../assets/images/light.jpg");
+    height: 30%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-position: center;   
+   
+}
+ 
+
+
+.container{
+ 
+    margin-right: 9rem;
+    margin-left: 9rem;
+ 
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+p{ 
+    margin-left: 8.5rem;
+    margin-right: 8.5rem;
+}
+
+h2{
+    font-family: keep-calm;
+    margin-left: 2%;
+}
+
+.try{
+    padding-top: 1%;
+    font-family: keep-calm;
+    margin-left: 5%;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+    margin-left: 60px;
+    padding-top: 0.5%; 
+}
+
+
+.sub{
+    height: 52px;
+} 

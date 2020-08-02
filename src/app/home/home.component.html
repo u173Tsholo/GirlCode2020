@@ -1,0 +1,57 @@
+
+
+<h1 class="main-title">Period Tracker</h1>   
+<p>Keep track of your period by calculating your dates</p>
+
+
+
+<div class="container">
+<div class="calendar">
+
+    <button type="button" routerLink="/help">
+        <i class="fa fa-frown-o" aria-hidden="true"></i>
+        My period - 12 to 17 August
+      </button>
+      
+    <h3> {{monthName}} {{year}}</h3>
+
+    <table >
+    <thead>
+        <tr>
+            <th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th>
+        </tr>
+    </thead>
+    <tbody>  
+        <tr id="x">  
+            <td *ngFor="let entry of weekOneArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    <tbody>  
+        <tr >  
+            <td *ngFor="let entry of weekTwoArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    <tbody>  
+        <tr >  
+            <td *ngFor="let entry of weekThreeArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    <tbody>  
+        <tr >  
+            <td *ngFor="let entry of weekFourArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    <tbody>  
+        <tr >  
+            <td *ngFor="let entry of weekFiveArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    <tbody>  
+        <tr >  
+            <td *ngFor="let entry of weekSixArray">{{entry}}</td>  
+        </tr>  
+    </tbody> 
+    </table>
+
+</div>
+</div>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Daisy';
+  title = 'daisy';
   show: boolean = false;
 
   constructor(private router: Router) {}

@@ -1,33 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './pages/register/register.component';
-import { IndexComponent } from './pages/index/index.component';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ChatComponent } from "./pages/chat/chat.component";
-import { HelpComponent } from "./pages/help/help.component";
-import { TopicsComponent } from "./pages/topics/topics.component";
-import { LanguageComponent } from "./pages/mental health/language.component";
-import { PeriodComponent } from "./pages/period/period.component";
-import { ProfileComponent } from "./pages/gbv/profile.component";
-
+import {SplashComponent} from '../app/splash/splash.component';
+import {LoginComponent} from '../app/login/login.component';
+import {RegisterComponent} from '../app/register/register.component';
+import { from } from 'rxjs';
+import { TopicsComponent } from '../app/topics/topics.component';
+import { PeriodComponent } from '../app/period/period.component';
+import { LanguageComponent } from '../app/language/language.component';
+import { ProfileComponent } from '../app/profile/profile.component';
+import {ChatComponent} from '../app/chat/chat.component';
+import {HelpComponent} from '../app/help/help.component';
+import {HomeComponent} from '../app/home/home.component';
 
 const routes: Routes = [
-  {path: 'index', component: IndexComponent},
-  {path: 'signup', component: RegisterComponent},
+  {path: 'splash', component: SplashComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'topics', component: TopicsComponent},
+  {path: 'period', component: PeriodComponent},
+  {path: 'language', component: LanguageComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'help', component: HelpComponent},
-  {path: 'topics', component: TopicsComponent},
-  {path: 'language', component: LanguageComponent},
-  {path: 'period', component: PeriodComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'home', component: HomeComponent},
 
-
-    // otherwise redirect to index
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '**', component: IndexComponent}
+  { path: '', redirectTo: '/splash', pathMatch: 'full' },
+  { path: '**', component: SplashComponent}
 ];
 
 @NgModule({

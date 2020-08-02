@@ -1,0 +1,31 @@
+ <div class="one">
+ <div class="container-fluid">
+    <div class="row">
+    
+      <div  id="channels" class="col-xs-12">
+        
+        <h1>Chat History</h1>
+        <mat-card *ngFor="let channel of channelList" >
+            <mat-card-header>
+                <mat-card-title>Message from: {{channel.user}} at time: {{channel.timestamp}}</mat-card-title>
+                <mat-card-subtitle>Message itself: {{channel.message}}</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+      </div>
+    
+        <div class="col-xs-12">
+            <div id="sendMsg">
+              <form [formGroup]="userChatServiceForm" (ngSubmit)="sendThisMessage(userChatServiceForm.value)">
+                <mat-form-field appearance="fill">
+                  <input class="input" matInput placeholder="Type a message" id="in" formControlName="newMessage" required>
+                </mat-form-field>
+                <button type="button" (click)="sendThisMessage(userChatServiceForm.value)">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+ </div>    

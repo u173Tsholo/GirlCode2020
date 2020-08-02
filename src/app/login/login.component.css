@@ -1,0 +1,57 @@
+.container{
+  background-image: url("../../assets/images/new.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+
+h1{
+  margin-top: 1rem;
+  font-family: keep-calm;
+}
+
+
+.btns{
+  background-color: #7C593A;
+  color:white
+}
+
+#one{
+  margin: 5%;
+}
+
+.regForm{
+   max-width: 20%;
+  text-align: center;
+ /*  margin-left: 60rem;  */
+     margin-top: 6rem; 
+  /* height: 300px; */
+}
+
+.regFormContent{
+  margin-top: 1rem;
+}
+
+/* .cardTitle{
+  margin-left: 1rem;
+  margin-top: 1rem;
+} */
+#passError{
+  color: red;
+}
+
+
+img{ 
+  width: 75%;
+  height: 75%;
+  padding-left: 1rem;
+  padding-top: 1rem;   
+}
+
+.cen{
+  text-align: center;
+}
