@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   week: any = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   monthArray: any = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   todaysDateObject: Date = new Date(); //get todays date
-  month: number = this.todaysDateObject.getUTCMonth(); //extract month --> + 1 because start is index 0
+  month: number = this.todaysDateObject.getUTCMonth() + 1; //extract month --> + 1 because start is index 0
   day: number = this.todaysDateObject.getUTCDate(); //extract day as a digit
   year: number = this.todaysDateObject.getUTCFullYear(); //extract year as a digit
   check: number;
@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
    this.firstDayOfTheMonth = new Date(this.year,  this.month, 0 - (this.day));//find out the textual day of the week of the first month
    this.firstDayOfTheMonth.toDateString();
    this.temp  = this.week[this.firstDayOfTheMonth.getDay()];
-   this.monthName = this.monthArray[this.month];
+   this.monthName = this.monthArray[this.month-1];
 
    this.a = this.week.indexOf(this.temp);
    console.log("hey ",this.a);

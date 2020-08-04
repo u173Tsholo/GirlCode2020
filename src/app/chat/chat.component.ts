@@ -63,14 +63,6 @@ export class ChatComponent implements OnInit {
 
     alert("Message sent");
     this.getChannels();
-    this.loop = true;
-
-    while(this.loop){
-      setTimeout(() => {
-        console.log('hide');
-        this.getChannels();
-      }, 3000);
-    }
 
   }
 
