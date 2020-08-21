@@ -39,7 +39,7 @@ The code can be founf on the API branch and can be run using 'npm run dev' in de
 
 ## Database
 Postgres running on the Heroku server to allow simultaneous user access. Connection details are provided within the database.js file on the API branch
-(We would save the connection details using git secrets on a normal day to avoid users with malicious intent however for this demo we are not abiding by this ruel)
+(We would save the connection details using git secrets on a normal day to avoid users with malicious intent however for this demo we are not abiding by this rule)
 
 
 
