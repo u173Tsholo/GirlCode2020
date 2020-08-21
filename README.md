@@ -10,7 +10,7 @@ At first glance, the app is a typical period tracker with a calendar and info pa
 
 This application will deal with the user and an authoritative body like ours or other authoritative bodies we refer them to. We want to avoid situations where community members take matters into their own hands because case may tend to be distorted when police get involved
 
-`Users can rate the intensity of the situation they are in or use the chat service to peak to one of our qualified help center personnel on matters such as: Is my partner abusing me even though he apologies when he hurts me?, What shelters are there for abused women near me during lockdown etc. We do not make use of a robot chat service as we deal more with human emotions.`
+`Users can rate the intensity of the situation they are in or use the chat service to speak to one of our qualified help center personnel on matters such as: Is my partner abusing me even though he apologies when he hurts me?, What shelters are there for abused women near me during lockdown etc. We do not make use of a robot chat service as we deal more with human emotions.`
 
 Even though we have the phone numbers of the user, we will not call them unless they require we do so as reaching out to us through the app tells us that they are not in a position to call authorities as they might be dangerous for them
 
